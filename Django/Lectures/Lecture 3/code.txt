@@ -1,0 +1,52 @@
+# model.py:
+
+
+from django.db import models
+from django.conf import settings
+from django.core.validators import MinLengthValidator
+
+# Create your models here.
+class Students(models.Model):
+    roll_number = models.IntegerField()
+    full_name = models.CharField(validators=[MinLengthValidator(2)], max_length=30)
+    department = models.CharField(choices=settings.DEPARTMENT_NAMES)
+    year = models.CharField(default='first', choices=[
+        ('f', 'first'),
+        ('s', 'second')
+    ])
+
+
+    def __str__(self):
+        return self.full_name + ' ->' + str(self.roll_number) + '@' + self.department
+
+
+
+
+# -------------------------------------------------------------------------------------------------------------------------
+
+# hello.py:
+
+
+from django.core.management.base import BaseCommand, CommandError
+from app_1.models import Students
+from random import randint, choice
+from faker import Faker
+
+class Command(BaseCommand):
+    help = "To Greet the user"
+
+    def handle(self, *args, **options):
+        fake = Faker()
+        for i in range(100):
+            new_student = {
+                'roll_number': randint(1, 100),
+                'full_name': fake.name(),
+                'department': choice(['CS','GLG','AI','SE']),
+                'year': choice(['f', 's'])
+            }
+
+            print(f"{new_student}")
+            Students.objects.create(**new_student)
+
+
+# ---------------------------------------------------------------------------------------------
