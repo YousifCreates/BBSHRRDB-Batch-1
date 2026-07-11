@@ -1,0 +1,1 @@
+print(f"{"Task 2: Write a Python program that takes a number from the user and checks whether it is divisible by both 3 and 5.":^50}")

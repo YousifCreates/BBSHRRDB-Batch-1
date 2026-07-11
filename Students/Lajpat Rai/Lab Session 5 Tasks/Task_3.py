@@ -1,0 +1,1 @@
+print(f"{"Task 3: Write a Python program that takes marks of three subjects, calculates the average, and displays the grade.":^50}")
