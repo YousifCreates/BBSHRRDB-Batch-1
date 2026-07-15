@@ -1,1 +1,0 @@
-print(f"{"Task 5: Write a Python program that takes a product price and customer type. If the customer is a student, give 20% discount. If the customer is a regular customer, give 10% discount. Otherwise, no discount should be applied.":^50}")
