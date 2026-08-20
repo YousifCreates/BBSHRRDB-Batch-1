@@ -1,3 +1,11 @@
+receiver = "2k24-ai-60@usindh.edu.pk"
+
+student_name = "Muhammad Yousif"
+course_name = "AI Automation & Robotics"
+registration_id = "BBSHRRDB-2026-00125"
+registration_date = "20 August 2026"
+venue = "University of Sindh, Jamshoro"
+
 html = f"""
 <!DOCTYPE html>
 
