@@ -8,7 +8,7 @@ load_dotenv()
 
 email = os.getenv("EMAIL")
 password = os.getenv("PASSWORD")
-port = int(os.getenv("PORT"))
+port = os.getenv("PORT")
 smtp_server = os.getenv("SMTP_SERVER")
 
 context = ssl.create_default_context()
@@ -18,6 +18,7 @@ msg = EmailMessage()
 #      "From":"{email}",
 #      "To":"{email}",
 #      "Subject":"Test Email",
+#      "Body":"{body}"
 #     }
 #
 # # """

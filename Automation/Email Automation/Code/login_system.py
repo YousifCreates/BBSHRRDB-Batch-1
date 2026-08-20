@@ -2,18 +2,19 @@ from dotenv import load_dotenv
 import os
 import ssl
 import smtplib
+import random
 from email.message import EmailMessage
 
 load_dotenv()
 sender_email = os.getenv("EMAIL")
 sender_password = os.getenv("PASSWORD")
-port = int(os.getenv("PORT"))
+port = os.getenv("PORT")
 smtp_server = os.getenv("SMTP_SERVER")
 context = ssl.create_default_context()
 
 
 subject = "You have signed up successfully at BBSHRRDB!"
-body = f"""
+body = """
         Hello, This is an automated email from BBSHRRDB Student Portal! \n
         You have successfully signed up at BBSHRRDB Student Portal. \n
         Thank you for signing up! \n
@@ -46,7 +47,7 @@ def signup():
         print("Credentials saved, Please login to continue.")
     with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
         server.login(sender_email, sender_password)
-        print("Logged in successfully!")
+        print("Server Login Occured Succesfully!")
         msg = EmailMessage()
         msg["From"] = sender_email
         msg["To"] = email
