@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from html_template import html
+from html_template import html, receiver, student_name, course_name, registration_id, registration_date, venue
 
 # LOAD ENVIRONMENT VARIABLES
 load_dotenv()
@@ -14,20 +14,10 @@ password = os.getenv("PASSWORD")
 smtp_server = os.getenv("SMTP_SERVER")
 port = os.getenv("PORT")
 
-# STUDENT INFORMATION
-
-receiver = "2k24-ai-60@usindh.edu.pk"
-
-student_name = "Muhammad Yousif"
-course_name = "AI Automation & Robotics"
-registration_id = "BBSHRRDB-2026-00125"
-registration_date = "20 August 2026"
-venue = "University of Sindh, Jamshoro"
 
 # EMAIL SUBJECT
 subject = "Registration Successful — BBSHRRDB"
 message = MIMEMultipart("alternative")
-
 message["Subject"] = subject
 message["From"] = email
 message["To"] = receiver
@@ -38,7 +28,13 @@ BBSHRRDB — Registration Successful
 
 Hello {student_name},
 
-Congratulations!
+Congratulations!receiver = "2k24-ai-60@usindh.edu.pk"
+
+student_name = "Muhammad Yousif"
+course_name = "AI Automation & Robotics"
+registration_id = "BBSHRRDB-2026-00125"
+registration_date = "20 August 2026"
+venue = "University of Sindh, Jamshoro"
 
 Your registration for the BBSHRRDB {course_name} program has been successfully completed.
 
